@@ -4,15 +4,36 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div className={styles.page}>
+      {/* Header */}
+      <header className={styles.header}>
+        {/* Logo */}
+        <div className={styles.logoContainer}>
+          <Image
+            src="/faab_logo.png"
+            alt="App Logo"
+            width={120}
+            height={120}
+            priority
+          />
+        </div>
+
+        {/* Hamburger toggle */}
+        <input type="checkbox" id="menu-toggle" className={styles.menuToggle} />
+        <label htmlFor="menu-toggle" className={styles.hamburger}>
+          ☰
+        </label>
+
+        {/* Nav links */}
+        <nav className={styles.nav}>
+          <a href="/">Quick Links</a>
+          <a href="/about">Gallery</a>
+          <a href="/services">About</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+
+      {/* Main content */}
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
         <ol>
           <li>
             Get started by editing <code>src/app/page.js</code>.
@@ -46,19 +67,15 @@ export default function Home() {
           </a>
         </div>
       </main>
+
+      {/* Footer */}
       <footer className={styles.footer}>
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
+          <Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
           Learn
         </a>
         <a
@@ -66,13 +83,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
+          <Image aria-hidden src="/window.svg" alt="Window icon" width={16} height={16} />
           Examples
         </a>
         <a
@@ -80,13 +91,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
+          <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
           Go to nextjs.org →
         </a>
       </footer>

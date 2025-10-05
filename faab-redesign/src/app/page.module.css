@@ -1,59 +1,77 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #997755;
+}
+
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
   display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  background-color: #c0a154;
   font-family: var(--font-geist-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
 }
 
+.logoContainer {
+  display: flex;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  color: darkred;
+}
+
+.menuToggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Main */
 .main {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 32px;
-  grid-row-start: 2;
+  padding: 2rem;
 }
 
 .main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
+  list-style-position: inside;
+  padding: 0;
   margin: 0;
+  text-align: center;
   font-size: 14px;
   line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
 }
 
 .ctas {
@@ -62,39 +80,23 @@
 }
 
 .ctas a {
-  appearance: none;
   border-radius: 128px;
   height: 48px;
   padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  line-height: 20px;
   font-weight: 500;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
+/* Footer */
 .footer {
-  grid-row-start: 3;
   display: flex;
   gap: 24px;
+  padding: 1rem;
+  justify-content: center;
 }
 
 .footer a {
@@ -103,65 +105,24 @@ a.secondary {
   gap: 8px;
 }
 
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
+/* Mobile Styles */
 @media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
+  .hamburger {
+    display: block;
   }
 
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
+  .nav {
+    display: none;
     flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: #222;
+    padding: 1rem;
+    border-radius: 8px;
   }
 
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+  .menuToggle:checked ~ .nav {
+    display: flex;
   }
 }
