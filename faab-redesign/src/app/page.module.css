@@ -1,14 +1,14 @@
 html, body {
   height: 100%;
   margin: 0;
-  background-color: #997755;
+  background-color: #E3C271;
+  scroll-behavior: smooth;
 }
 
 .page {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background-color: #c0a154;
   font-family: var(--font-geist-sans);
 }
 
@@ -19,6 +19,7 @@ html, body {
   align-items: center;
   padding: 1rem 2rem;
   position: relative;
+  background-color: white;
 }
 
 .logoContainer {
@@ -26,6 +27,15 @@ html, body {
   align-items: center;
   padding-top: 0.5rem;
   padding-left: 1rem;
+}
+
+.logoLink {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logoLink:hover {
+  transform: scale(1.05);
 }
 
 .nav {
@@ -58,57 +68,239 @@ html, body {
 
 /* Main */
 .main {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 32px;
+}
+
+/* Mission Statement Section */
+.missionSection {
+  background-color: white;
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.blueOverlay {
+  background-color: #87CEEB;
+  border-radius: 20px;
   padding: 2rem;
+  margin: 0 auto;
+  max-width: 1000px;
+  position: relative;
 }
 
-.main ol {
-  list-style-position: inside;
-  padding: 0;
-  margin: 0;
+.blueOverlay::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: #87CEEB;
+  border-radius: 0 0 20px 20px;
+}
+
+.missionTitle {
   text-align: center;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #333;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
+.missionContent {
+  text-align: left;
 }
 
-.ctas a {
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 500;
+.missionText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.keyWords {
+  margin-top: 2rem;
+}
+
+.keyWords h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.keyWordsList {
+  list-style: none;
+  padding: 0;
+}
+
+.keyWordsList li {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Events Section */
+.eventsSection {
+  background-color: #E3C271;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.eventsTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #8B0000;
+  margin-bottom: 2rem;
+}
+
+.eventsContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.eventItem {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.eventDate {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #8B0000;
+  margin-bottom: 0.5rem;
+}
+
+.eventName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.eventDescription {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.eventsFooter {
+  margin-top: 2rem;
+}
+
+.calendarLink {
+  display: inline-block;
+  background-color: #8B0000;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.calendarLink:hover {
+  background-color: #A00000;
+  color: white;
 }
 
 /* Footer */
 .footer {
   display: flex;
-  gap: 24px;
-  padding: 1rem;
-  justify-content: center;
-  background-color: #330000;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: #2C1810;
   color: white;
 }
 
+.footerLogo {
+  flex-shrink: 0;
+}
+
+.footerLinks {
+  flex: 1;
+  max-width: 400px;
+}
+
+.linksTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.linksColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.linksColumn a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.linksColumn a:hover {
+  color: #FFD700;
+  text-decoration: underline;
+}
+
 /* Mobile Styles */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .missionSection {
+    padding: 2rem 1rem;
+  }
+
+  .blueOverlay {
+    padding: 1.5rem;
+  }
+
+  .missionTitle {
+    font-size: 1.4rem;
+  }
+
+  .eventsSection {
+    padding: 2rem 1rem;
+  }
+
+  .eventsTitle {
+    font-size: 1.4rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .linksColumns {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
   .hamburger {
     display: block;
   }
