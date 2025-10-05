@@ -34,7 +34,7 @@ html, body {
 }
 
 .nav a {
-  color: white;
+  color: black;
   text-decoration: none;
   font-weight: 500;
 }
@@ -97,12 +97,14 @@ html, body {
   gap: 24px;
   padding: 1rem;
   justify-content: center;
+  background-color: #330000;
 }
 
 .footer a {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: white;
 }
 
 /* Mobile Styles */
