@@ -26,8 +26,8 @@ export default function Home() {
         {/* Nav links */}
         <nav className={styles.nav}>
           <a href="/">Quick Links</a>
-          <a href="/about">Gallery</a>
-          <a href="/services">About</a>
+          <a href="/gallery">Gallery</a>
+          <a href="/about">About</a>
           <a href="/contact">Contact</a>
         </nav>
       </header>
@@ -70,22 +70,14 @@ export default function Home() {
 
       {/* Footer */}
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image aria-hidden src="/window.svg" alt="Window icon" width={16} height={16} />
-          Examples
-        </a>
+        <Image
+          src="/faab_logo.png"
+          alt="App Logo"
+          width={120}
+          height={120}
+          priority
+        />
+        
         <a
           href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           target="_blank"
